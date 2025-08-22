@@ -10,7 +10,6 @@ class Lexer:
         self.advance()
 
     def advance(self):
-        """Move to the next character in the input"""
         try:
             self.current_char = next(self.command)
         except StopIteration:
@@ -51,12 +50,11 @@ class Lexer:
                 self.advance()
 
             else:
-                raise Exception(f"Illegal character: {self.current_char}")
+                raise Exception(f"Wrong character: {self.current_char}")
 
         return tokens
 
     def generate_number(self):
-        """Handle multi-digit numbers"""
         num_str = self.current_char
         self.advance()
 
